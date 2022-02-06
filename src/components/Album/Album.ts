@@ -30,26 +30,26 @@ class Album extends Model {
     get info() {
         const {
             _id,
+            user,
             owner,
             title,
             description,
             featured,
             cover,
             images,
-            imageQty,
             createdAt,
             updatedAt,
         } = this;
 
         return {
             _id,
+            user,
             owner,
             title,
             description,
             featured,
             cover,
             images,
-            imageQty,
             createdAt,
             updatedAt,
         };

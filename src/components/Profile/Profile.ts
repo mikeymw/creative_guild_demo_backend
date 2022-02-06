@@ -30,6 +30,7 @@ class Profile extends Model {
     get info() {
         const {
             _id,
+            user,
             name,
             phone,
             email,
@@ -41,6 +42,7 @@ class Profile extends Model {
 
         return {
             _id,
+            user,
             name,
             phone,
             email,
