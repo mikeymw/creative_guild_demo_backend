@@ -1,0 +1,14 @@
+- major backend tech stacks include node.js and koa.js (and related utilities such as koa-router), database is MongoDB and I use mongoose ODM to manage the data 
+
+- the reasons for choosing these tech stacks are: 
+  1. I am familiar with them and I code javascript longer than other languages
+  2. using koa.js instead of express.js because koa is very light weight and more performant , koa also greatly utilize async await rather than call backs. 
+  3. MongoDB is a no-SQL database which is very easy to use for those coming from a javascript background, it is also very flexible as compare to SQL database. Mongoose ODM allows me to define data schemas which is a huge advantage in managing data with MongoDB
+
+- the provided json data is quite simple however, I have taken the embeded album array out of the profile and made a separate mongoDB collection, it provides much more flexibility to query the album and we can easily utilize mongoDB methods for query. For example, now we can GET the album and sort them by "title" or "featured", we can even do a full text search on "title" or "description", if albums are embeded as a sub-document inside profile, it would be difficult to perform these queries. 
+
+- I have also added "user" in both profile and album schema, "owner" in album schema, these properties shall ease the verification process for a user trying to PATCH the document. 
+
+- note that this micro service does not serve image and media contents, we should have a separate micro service (i.e. content service) to serve media contents, we should also have an authentication service. 
+
+- the indexing of fields in the data schema is not optimized for this demo, they shall be optimized based on how data shall be retrieved for various use cases, other micro services must also be taken into account for such optimization as these micro  services communicates with each other very often. 
